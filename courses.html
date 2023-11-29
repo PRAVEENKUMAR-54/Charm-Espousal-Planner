@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fc0d49059d.js" crossorigin="anonymous"></script>
+</head>
+<body >
+    <header style="min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.111),rgba(0, 0, 0, 0.988)),url(https://www.laroyale.co.uk/wp-content/uploads/2021/05/terence-meghani-official-photography-9136-1536x864.jpeg);
+    background-size: cover;
+    background-position: right;
+    position: relative;">
+        <div class="header-content flex-design">
+            <div class="logo">
+                <img src="C:\Users\solai\OneDrive\Desktop\wedding\images\logo.jpeg" >
+            </div>
+            <ul class="nav-links flex-design">
+            <li><a href="homepage.html">HOME</a></li>
+            <li><a href="about-us.html">ABOUT</a></li>     
+            <li><a href="courses.html">PLANNER</a></li> 
+            <li><a href="contact.html">CONTACT</a></li> 
+            </ul>
+            <div class="burger">
+                <i class="fas fa-bars"></i> <!-- Example bar icon -->
+            </div>
+            
+        </div>
+        <div class="text-center">
+            <p>Welcome To</p>
+            <h1>Charm Espousal Planners</h1>
+            <a class="btn" href="https://www.laroyale.co.uk/brochure/">BROCHURE</a>
+        
+        </div>
+
+       
+    </header>
+<!--header end-->
+<main>
+    <section class="course-table-section mt mb content">
+        <div class="course-table-heading heading">
+            <h2>BUDGET TRACKER</h2>
+        </div>
+        <div class="course-table-content content">
+            <table class="course-table">
+                <tr>
+                    <th>S.No</th>
+                    <th>Category</th>
+                    <th>Numbers</th>
+                    <th>Estimated Cost</th>
+                    <th>Book Now</th>
+                </tr>
+                <tr>
+                    <td>01.</td>
+                    <td>Venue</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Rooms"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Rooms"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>02.</td>
+                    <td>Catering</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Guests"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Per head"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>03.</td>
+                    <td>Attire</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Bride,Groom"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Expense"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>04.</td>
+                    <td>Photography and Videography</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Estimation"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Expense"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>05.</td>
+                    <td>Floral and Decor</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Estimation"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Expense"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>06.</td>
+                    <td>Entertainment</td>
+                    <td><input type="number" id="venue-estimate" placeholder="DJ"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Estimation"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>07.</td>
+                    <td>Stationery</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Invitation"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Estimation"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>08.</td>
+                    <td>Wedding Rings</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Mineral"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Estimation"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>09.</td>
+                    <td>Officiant and Ceremony</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Fees"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Expense"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Transportation</td>
+                    <td><input type="number" id="venue-estimate" placeholder="Mode"></td>
+                    <td><input type="number" id="venue-actual" placeholder="Expense"></td>
+                    <td><a href="">CLICK</a></td>
+                </tr>
+                <tr class="budget-total">
+                    <td>TOTAL</td>
+                    <td>CONTACT</td>
+                    <td id="total-estimate">0</td>
+                    <td id="total-actual">0</td>
+                    <td>OK!</td>
+                </tr>
+            </table>
+                <script>
+        // JavaScript code for calculating and updating the total budget
+        const updateTotal = () => {
+            const estimateInputs = document.querySelectorAll('[id$="-estimate"]');
+            const actualInputs = document.querySelectorAll('[id$="-actual"]');
+            let totalEstimate = 0;
+            let totalActual = 0;
+
+            estimateInputs.forEach(input => {
+                totalEstimate += parseFloat(input.value) || 0;
+            });
+
+            actualInputs.forEach(input => {
+                totalActual += parseFloat(input.value) || 0;
+            });
+
+            document.getElementById('total-estimate').textContent = totalEstimate.toFixed(2);
+            document.getElementById('total-actual').textContent = totalActual.toFixed(2);
+        };
+
+        // Attach event listeners to input fields for real-time updates
+        const inputFields = document.querySelectorAll('input');
+        inputFields.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+    </script>
+        </div>
+    </section>
+    <section class="info-center mt mb">
+        <div class="info-center-heading heading">
+            <h2>Our special marriage events:</h2>
+        </div>
+        <div class="info-center-content content">
+            <div class="center">
+                <p>
+                    <i class="fas fa-location-arrow"></i>Flights
+                </p>
+            </div>
+            <div class="center">
+                <p>
+                    <i class="fas fa-location-arrow"></i>Under the sea
+                </p>
+            </div>
+            <div class="center">
+                <p>
+                    <i class="fas fa-location-arrow"></i>Mountains
+                </p>
+            </div>
+            <div class="center">
+                <p>
+                    <i class="fas fa-location-arrow"></i>Open Space
+                </p>
+            </div>
+
+        </div>
+    </section>
+</main>
+<!--footer starts-->
+<footer>
+    <div class="footer-content mt">
+        <div class="footer-top">
+            <div class="footer-top-container content flex-design">
+                <div class="footer-logo">
+                    <img src="C:\Users\solai\OneDrive\Desktop\wedding\images\logo.jpeg" alt="">
+                </div>
+                <div class="footer-links">
+                    <li><a href="homepage.html">HOME</a></li>
+                    <li><a href="about-us.html">ABOUT</a></li>     
+                    <li><a href="courses.html">PLANNER</a></li> 
+                    <li><a href="contact.html">CONTACT</a></li>
+                </div>
+                <div class="footer-college">
+                    <h3>Charm Espousal Planners</h3>
+                    <p>Your #1 CHOice!</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p> Copyright &copy; CEP</p>
+        </div>
+    </div>
+</footer>
+<script src="app.js"></script>
+
+</body>
+</html>
